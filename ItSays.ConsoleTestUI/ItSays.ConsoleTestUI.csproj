@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ItSays.Business\ItSays.Business.csproj" />
+    <ProjectReference Include="..\ItSays.Core\ItSays.Core.csproj" />
+    <ProjectReference Include="..\ItSays.DataAccess\ItSays.DataAccess.csproj" />
+    <ProjectReference Include="..\ItSays.Entities\ItSays.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
