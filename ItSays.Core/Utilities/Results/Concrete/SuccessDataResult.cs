@@ -20,9 +20,6 @@ namespace ItSays.Core.Utilities.Results.Concrete
 
         }
 
-        public SuccessDataResult():base(default,true)
-        {
-
-        }
+        
     }
 }

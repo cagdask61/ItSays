@@ -19,5 +19,6 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<AuthorOperationClaim> AuthorOperationClaims { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Composer> Composers { get; set; }
     }
 }

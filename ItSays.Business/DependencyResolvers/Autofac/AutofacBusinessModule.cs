@@ -32,6 +32,9 @@ namespace ItSays.Business.DependencyResolvers.Autofac
             builder.RegisterType<CategoryManager>().As<ICategoryService>();
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
 
+            builder.RegisterType<ComposerManager>().As<IComposerService>();
+            builder.RegisterType<EfComposerDal>().As<IComposerDal>();
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
