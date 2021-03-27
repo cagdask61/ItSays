@@ -33,7 +33,7 @@ namespace ItSays.Business.Concrete
         {
 
             article.Date = DateTime.Now;
-            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title));
+            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title),CheckDate(article.Date));
 
             if (result != null)
             {
@@ -57,7 +57,7 @@ namespace ItSays.Business.Concrete
         public IResult ArticleUpdate(Article article)
         {
             article.Date = DateTime.Now;
-            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title));
+            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title),CheckDate(article.Date));
             if (result != null)
             {
                 return result;
