@@ -15,5 +15,6 @@ namespace ItSays.DataAccess.Abstract
         List<ArticleDto> ArticleDetailFilter(Expression<Func<Article, bool>> filter = null);
         //
         ArticleDto ArticleDtoFilter(Expression<Func<Article, bool>> filter = null);
+
     }
 }

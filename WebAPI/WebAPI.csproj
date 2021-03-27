@@ -13,5 +13,9 @@
     <ProjectReference Include="..\ItSays.Business\ItSays.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 
 </Project>
