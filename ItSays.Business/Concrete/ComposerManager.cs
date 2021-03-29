@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using ItSays.Entities.Dtos;
 
 namespace ItSays.Business.Concrete
 {
@@ -18,8 +19,14 @@ namespace ItSays.Business.Concrete
             _composerDal = composerDal;
         }
 
-     
+        public IDataResult<ComposerDto> GetComposer(int Id)
+        {
+            return new SuccessDataResult<ComposerDto>(_composerDal.composerDetail(c=>c.Id == Id));
+        }
 
-       
+        public IDataResult<List<ComposerDto>> GetComposerDetails()
+        {
+            return new SuccessDataResult<List<ComposerDto>>(_composerDal.composerAllDetail());
+        }
     }
 }

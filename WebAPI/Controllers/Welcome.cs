@@ -12,9 +12,32 @@ namespace WebAPI.Controllers
     [Route("[controller]")]
     public class Welcome : ControllerBase
     {
-        public string Start()
+        private class WelcomeMessage
+        {
+            public int Number { get; set; }
+            public string Text { get; set; }
+        }
+
+         List<WelcomeMessage> list = new List<WelcomeMessage>
+        {
+            new WelcomeMessage(){Number=1,Text="Welcome"},
+            new WelcomeMessage(){Number=2,Text="Merhaba"}
+        };
+       
+
+        public string Message()
         {
             return "Welcome";
+        }
+
+        [HttpGet]
+        public IActionResult Start()
+        {
+            if (list == null)
+            {
+                return BadRequest(list);
+            }
+            return Ok(list);
         }
     }
 }
