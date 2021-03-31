@@ -29,15 +29,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getcomposer")]
-        public IActionResult GetComposer(int composersId)
-        {
-            var result = _composerService.GetComposer(composersId);
-            if (result.State)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
+       
     }
 }

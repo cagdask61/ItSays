@@ -38,6 +38,6 @@ namespace ItSays.Business.Constants
         public static string CategoryNameNotEmpty = "Kategori ismi boş geçilemez.";
         public static string DateError = "Tarih şimdiki zamandan büyük olamaz.";
 
-        public static string Token = "Giriş başarılı !";
+        public static string Token = "İşlemler başarılı !";
     }
 }

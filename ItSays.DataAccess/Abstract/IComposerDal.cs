@@ -12,6 +12,5 @@ namespace ItSays.DataAccess.Abstract
     public interface IComposerDal : IEntityRepository<Composer>
     {
         List<ComposerDto> composerAllDetail();
-        ComposerDto composerDetail(Expression<Func<Composer,bool>> filter);
     }
 }

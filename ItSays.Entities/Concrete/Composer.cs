@@ -9,6 +9,5 @@ namespace ItSays.Entities.Concrete
     {
         public int Id { get; set; }
         public int AuthorId { get; set; }
-        public int ArticleId { get; set; }
     }
 }

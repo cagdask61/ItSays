@@ -20,36 +20,17 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
             {
                 var joinList = from co in context.Composers
                                join au in context.Authors on co.AuthorId equals au.Id
-                               join ar in context.Articles on co.ArticleId equals ar.Id
                                select new ComposerDto
                                {
-                                   Number = co.Id,
-                                   Title = ar.Title,
+                                   Email = au.Email,
                                    FirstName = au.FirstName,
                                    LastName = au.LastName,
-                                   Date = ar.Date
+                                  
                                };
                 return joinList.ToList();
             }
         }
 
-        public ComposerDto composerDetail(Expression<Func<Composer, bool>> filter)
-        {
-            using (ItSaysContext context = new ItSaysContext())
-            {
-                var joinSingle = from co in filter == null ? context.Composers : context.Composers.Where(filter)
-                                 join au in context.Authors on co.AuthorId equals au.Id
-                                 join ar in context.Articles on co.ArticleId equals ar.Id
-                                 select new ComposerDto
-                                 {
-                                     Number = co.Id,
-                                     FirstName = au.FirstName,
-                                     LastName  = au.LastName,
-                                     Title = ar.Title,
-                                     Date = ar.Date
-                                 };
-                return joinSingle.SingleOrDefault();
-            }
-        }
+       
     }
 }

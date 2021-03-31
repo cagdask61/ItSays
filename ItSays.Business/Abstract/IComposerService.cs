@@ -10,6 +10,5 @@ namespace ItSays.Business.Abstract
     public interface IComposerService
     {
         IDataResult<List<ComposerDto>> GetComposerDetails();
-        IDataResult<ComposerDto> GetComposer(int Id);
     }
 }
