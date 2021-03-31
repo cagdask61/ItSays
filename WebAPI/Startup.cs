@@ -69,8 +69,8 @@ namespace WebAPI
 
             app.ConfigureCustomExceptionMiddleware();
 
-            //app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()); //angular
-            app.UseCors(builder => builder.WithOrigins("https://localhost:44308").AllowAnyHeader()); //blazor
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "https://localhost:44308").AllowAnyHeader()); //angular -- blazor
+            //app.UseCors(builder => builder.WithOrigins("https://localhost:44308").AllowAnyHeader()); //blazor
 
             app.UseHttpsRedirection();
 
