@@ -12,7 +12,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ComposersController : ControllerBase
     {
-        IComposerService _composerService;
+        private IComposerService _composerService;
         public ComposersController(IComposerService composerService)
         {
             _composerService = composerService;

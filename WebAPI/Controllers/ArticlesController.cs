@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ArticlesController : ControllerBase
     {
-        IArticleService _articleService;
+        private IArticleService _articleService;
         public ArticlesController(IArticleService articleService)
         {
             _articleService = articleService;
@@ -41,7 +41,19 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        
+
+        [Route("getby/{articleId}")]
+        [HttpGet]
+        public IActionResult GetByArticleIdRoute(int articleId)
+        {
+            var result = _articleService.GetById(articleId);
+            if (result.State)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("articlebycategoryid")]
         public IActionResult GetArticleByCategoryId(int categoryId)
         {
