@@ -33,5 +33,4 @@ namespace ItSays.Core.Utilities.Interceptors
             OnAfter(invocation);
         }
     }
-
 }

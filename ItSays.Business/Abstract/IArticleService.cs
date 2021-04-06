@@ -29,5 +29,7 @@ namespace ItSays.Business.Abstract
         //
         IDataResult<ArticleDto> GetArticleDtoFilterArticle(int Id);
 
+        IDataResult<ArticleDto> GetArticleNewDto(int articleId);
+
     }
 }

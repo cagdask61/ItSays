@@ -34,6 +34,32 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
             }
         }
 
+        public ArticleDto ArticleDetailDto(Expression<Func<ArticleDto, bool>> filter)
+        {
+            using (ItSaysContext context = new ItSaysContext())
+            {
+                var join = from ar in context.Articles
+                           join ca in context.Categories on ar.CategoryId equals ca.Id
+                           join au in context.Authors on ar.AuthorId equals au.Id
+                           select new ArticleDto
+                           {
+                               Number = ar.Id,
+                               Title = ar.Title,
+                               CategoryName = ca.CategoryName,
+                               FirstName = au.FirstName,
+                               LastName = au.LastName,
+                               Date = ar.Date,
+                               Writing = ar.Writing
+                           };
+                return join.Where(filter).SingleOrDefault();
+            }
+        }
+
+        public List<ArticleDto> ArticleDetailDtoList(Expression<Func<ArticleDto, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         //
         public List<ArticleDto> ArticleDetailFilter(Expression<Func<Article, bool>> filter = null)
         {

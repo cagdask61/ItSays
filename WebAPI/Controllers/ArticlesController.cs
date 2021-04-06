@@ -111,6 +111,17 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("articledetailnew")]
+        public IActionResult GetArticleDetailDto(int articleId)
+        {
+            var result = _articleService.GetArticleNewDto(articleId);
+            if (result.State)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         //dto end
 
         [HttpPost("articleadd")]

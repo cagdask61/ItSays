@@ -33,7 +33,7 @@ namespace ItSays.Business.Concrete
         {
 
             article.Date = DateTime.Now;
-            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title),CheckDate(article.Date));
+            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title), CheckDate(article.Date));
 
             if (result != null)
             {
@@ -57,7 +57,7 @@ namespace ItSays.Business.Concrete
         public IResult ArticleUpdate(Article article)
         {
             article.Date = DateTime.Now;
-            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title),CheckDate(article.Date));
+            var result = BusinessRules.Run(IfTheseArticlesContain(article.Writing), CheckArticleTitleExists(article.Title), CheckDate(article.Date));
             if (result != null)
             {
                 return result;
@@ -69,7 +69,7 @@ namespace ItSays.Business.Concrete
         [CacheAspect(duration: 20)]
         public IDataResult<List<Article>> GetAll()
         {
-            return new SuccessDataResult<List<Article>>(_articleDal.GetAll().OrderByDescending(ar=>ar.Id).ToList());
+            return new SuccessDataResult<List<Article>>(_articleDal.GetAll().OrderByDescending(ar => ar.Id).ToList());
         }
 
         [CacheAspect(duration: 20)]
@@ -92,12 +92,12 @@ namespace ItSays.Business.Concrete
         //--
         public IDataResult<List<ArticleDto>> GetArticleDetailFilterCategory(int categoryId)
         {
-            return new SuccessDataResult<List<ArticleDto>>(_articleDal.ArticleDetailFilter(a=>a.CategoryId == categoryId));
+            return new SuccessDataResult<List<ArticleDto>>(_articleDal.ArticleDetailFilter(a => a.CategoryId == categoryId));
         }
 
         public IDataResult<ArticleDto> GetArticleDtoAuthorId(int authorId)
         {
-            return new SuccessDataResult<ArticleDto>(_articleDal.ArticleDtoFilter(a=>a.AuthorId == authorId));
+            return new SuccessDataResult<ArticleDto>(_articleDal.ArticleDtoFilter(a => a.AuthorId == authorId));
         }
 
         public IDataResult<ArticleDto> GetArticleDtoFilterArticle(int Id)
@@ -120,6 +120,11 @@ namespace ItSays.Business.Concrete
             return new SuccessResult();
         }
 
+        public IDataResult<ArticleDto> GetArticleNewDto(int articleId)
+        {
+            return new SuccessDataResult<ArticleDto>(_articleDal.ArticleDetailDto(ar=>ar.Number == articleId));
+        }
+
         //
         private IResult CheckArticleTitleExists(string articleTitle)
         {
@@ -139,6 +144,7 @@ namespace ItSays.Business.Concrete
             }
             return new SuccessResult();
         }
+
 
     }
 }
