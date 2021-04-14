@@ -30,6 +30,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("categoryalldata")]
+        public IActionResult GetallData()
+        {
+            var result = _categoryService.GetAllCategory();
+            if (result.State)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
+        }
+
         [HttpGet("categorybyId")]
         public IActionResult GetByCategoryId(int categoryId)
         {

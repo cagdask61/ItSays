@@ -66,6 +66,20 @@ namespace WebAPI.Controllers
         }
 
         //dto start
+
+        //blazor
+        [HttpGet("articledetaildata")]
+        public IActionResult GetArticleDetailData()
+        {
+            var result = _articleService.GetArticleDetail();
+            if (result.State)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
+        }
+        //blazor -- end
+
         [HttpGet("articledetail")]
         public IActionResult GetArticleDetail()
         {
