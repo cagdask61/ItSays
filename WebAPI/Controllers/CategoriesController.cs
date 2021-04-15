@@ -30,6 +30,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        //Blazor
         [HttpGet("categoryalldata")]
         public IActionResult GetallData()
         {

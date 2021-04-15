@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
 
         //dto start
 
-        //blazor
+        //Blazor
         [HttpGet("articledetaildata")]
         public IActionResult GetArticleDetailData()
         {
