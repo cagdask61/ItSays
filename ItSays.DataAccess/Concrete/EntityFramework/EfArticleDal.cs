@@ -22,6 +22,7 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
                            select new ArticleDto
                            {
                                Number = ar.Id,
+                               CategoryNumber = ca.Id,
                                FirstName = au.FirstName,
                                LastName = au.LastName,
                                Title = ar.Title,
@@ -44,6 +45,7 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
                            select new ArticleDto
                            {
                                Number = ar.Id,
+                               CategoryNumber = ca.Id,
                                Title = ar.Title,
                                CategoryName = ca.CategoryName,
                                FirstName = au.FirstName,
@@ -71,6 +73,7 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
                            select new ArticleDto
                            {
                                Number = ar.Id,
+                               CategoryNumber = ca.Id,
                                FirstName = au.FirstName,
                                LastName = au.LastName,
                                Title = ar.Title,
@@ -93,6 +96,7 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
                            select new ArticleDto
                            {
                                Number = ar.Id,
+                               CategoryNumber = ca.Id,
                                FirstName = au.FirstName,
                                LastName = au.LastName,
                                CategoryName = ca.CategoryName,

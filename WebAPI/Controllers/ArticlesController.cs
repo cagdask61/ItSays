@@ -78,6 +78,18 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Data);
         }
+
+        [Route("articledetaildata/{articleId}")]
+        [HttpGet]
+        public IActionResult GetArticleDtoFilterArticleData(int articleId)
+        {
+            var result = _articleService.GetArticleDtoFilterArticle(articleId);
+            if (result.State)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
+        }
         //blazor -- end
 
         [HttpGet("articledetail")]
