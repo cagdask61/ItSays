@@ -11,7 +11,7 @@ namespace ItSays.DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=ÇAĞDAŞKOCAMAN;Database=ItSaysContext;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=.;Database=ItSaysContext;Trusted_Connection=true");
         }
 
         public DbSet<Article> Articles { get; set; }
